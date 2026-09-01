@@ -12,10 +12,11 @@
     <section class="topbar" aria-label="游戏状态">
       <div class="brand"><span class="brand-mark">✦</span><span>方块小世界</span></div>
       <div class="status"><span id="time-label">白昼</span><span class="dot"></span><span id="position-label">坐标 0, 0</span></div>
+      <button id="help-toggle" class="icon-button help-toggle" title="显示或隐藏操作说明" aria-label="显示或隐藏操作说明">?</button>
       <button id="reset-btn" class="icon-button" title="重置游戏" aria-label="重置游戏">↻</button>
     </section>
     <div id="toast" role="status"></div>
-    <section class="help" aria-label="操作说明">
+    <section class="help is-hidden" id="help-panel" aria-label="操作说明">
       <div><kbd>WASD</kbd> / <kbd>方向键</kbd><span>移动</span></div>
       <div><kbd>空格</kbd><span>跳跃</span></div>
       <div><kbd>Shift</kbd><span>蹲下</span></div>
@@ -30,7 +31,6 @@
       <div class="inventory-head"><div><strong>背包</strong><small>选择方块放入物品栏</small></div><button id="close-inventory" class="icon-button" title="关闭背包" aria-label="关闭背包">×</button></div>
       <div id="inventory-grid" class="inventory-grid"></div>
     </aside>
-    <div class="crosshair" aria-hidden="true"><i></i><i></i></div>
   </main>
   <script src="game.js"></script>
 </body>
