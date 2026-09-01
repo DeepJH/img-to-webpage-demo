@@ -1,0 +1,27 @@
+* { box-sizing: border-box; }
+:root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, "Microsoft YaHei", sans-serif; }
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #111725; }
+body { user-select: none; }
+#game-shell, canvas { width: 100%; height: 100%; display: block; }
+#game-shell { position: relative; overflow: hidden; background: #73c7dc; }
+canvas { image-rendering: pixelated; cursor: crosshair; }
+.topbar { position: absolute; inset: 0 0 auto; height: 76px; display: flex; align-items: center; justify-content: space-between; padding: 0 30px; background: linear-gradient(180deg, rgba(8, 17, 30, .67), rgba(8, 17, 30, 0)); pointer-events: none; }
+.brand { display: flex; gap: 10px; align-items: center; color: #fff; font-weight: 700; letter-spacing: .04em; text-shadow: 0 1px 4px #152031; }
+.brand-mark { color: #d1ed72; font-size: 22px; }
+.status { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,.83); font-size: 12px; }
+.dot { width: 5px; height: 5px; border-radius: 50%; background: #d1ed72; }
+.icon-button { border: 0; color: #fff; background: rgba(10, 18, 32, .48); width: 34px; height: 34px; border-radius: 7px; font-size: 21px; cursor: pointer; pointer-events: auto; transition: background .2s, transform .2s; }
+.icon-button:hover { background: rgba(10, 18, 32, .8); transform: scale(1.06); }
+.help { position: absolute; left: 25px; bottom: 25px; display: flex; flex-wrap: wrap; max-width: 690px; gap: 8px 15px; padding: 10px 13px; border-left: 2px solid rgba(214,239,133,.8); background: rgba(8, 17, 30, .43); backdrop-filter: blur(5px); color: rgba(255,255,255,.78); font-size: 11px; pointer-events: none; }
+.help div { display: flex; align-items: center; gap: 6px; white-space: nowrap; } kbd { padding: 3px 6px; border: 1px solid rgba(255,255,255,.22); border-bottom-color: rgba(255,255,255,.42); border-radius: 4px; background: rgba(255,255,255,.12); color: #fff; font: 10px ui-monospace, monospace; }
+.hotbar { position: absolute; left: 50%; bottom: 27px; transform: translateX(-50%); display: flex; gap: 5px; padding: 6px; border: 1px solid rgba(255,255,255,.5); border-radius: 8px; background: rgba(9, 16, 26, .68); box-shadow: 0 3px 14px rgba(0,0,0,.18); }
+.slot { position: relative; width: 43px; height: 43px; padding: 4px; border: 1px solid rgba(255,255,255,.18); border-radius: 5px; background: rgba(255,255,255,.09); cursor: pointer; }
+.slot.active { border-color: #ddf581; box-shadow: 0 0 0 2px rgba(221,245,129,.22); }
+.slot canvas { width: 100%; height: 100%; }
+.slot-number { position: absolute; right: 4px; bottom: 1px; color: #fff; font: 10px ui-monospace, monospace; text-shadow: 1px 1px #000; }
+.inventory { position: absolute; top: 50%; left: 50%; width: min(530px, calc(100vw - 36px)); padding: 19px; transform: translate(-50%, -50%); border: 1px solid rgba(255,255,255,.3); border-radius: 10px; background: rgba(17, 27, 39, .94); box-shadow: 0 18px 60px rgba(0,0,0,.4); }
+.inventory-head { display: flex; justify-content: space-between; align-items: start; margin-bottom: 16px; }.inventory strong { display:block; color: #fff; font-size: 17px; }.inventory small { display:block; margin-top: 4px; color: rgba(255,255,255,.55); font-size: 11px; }.inventory-head .icon-button { margin-top: -5px; margin-right: -6px; }
+.inventory-grid { display:grid; grid-template-columns: repeat(8, 1fr); gap: 7px; }.inventory-grid .slot { width: 100%; height: auto; aspect-ratio: 1; padding: 5px; }.inventory-grid .slot canvas { image-rendering: pixelated; }.inventory-grid .slot:hover { background: rgba(214,239,133,.18); }
+.crosshair { position: absolute; top: 50%; left: 50%; width: 22px; height: 22px; transform: translate(-50%, -50%); pointer-events:none; opacity:.65; }.crosshair i { position:absolute; background:#fff; box-shadow:0 1px 2px #14202b; }.crosshair i:first-child { width: 2px; height: 22px; left: 10px; }.crosshair i:last-child { height: 2px; width: 22px; top: 10px; }
+#toast { position:absolute; top: 83px; left:50%; transform:translateX(-50%); padding: 7px 12px; border-radius: 5px; background:rgba(9,16,27,.65); color:#fff; font-size:12px; opacity:0; transition:opacity .2s; pointer-events:none; } #toast.show { opacity:1; }
+@media (max-width: 650px) { .topbar { padding: 0 16px; height: 65px; }.help { left: 12px; right: 12px; bottom: 12px; max-width:none; gap: 6px 10px; font-size:10px; }.hotbar { bottom: 105px; transform:translateX(-50%) scale(.82); transform-origin:bottom center; }.status { display:none; }.inventory { padding: 13px; }.inventory-grid { gap: 4px; } }

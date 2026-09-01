@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>方块小世界</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="world" aria-label="方块小世界游戏画布"></canvas>
+    <section class="topbar" aria-label="游戏状态">
+      <div class="brand"><span class="brand-mark">✦</span><span>方块小世界</span></div>
+      <div class="status"><span id="time-label">白昼</span><span class="dot"></span><span id="position-label">坐标 0, 0</span></div>
+      <button id="reset-btn" class="icon-button" title="重置游戏" aria-label="重置游戏">↻</button>
+    </section>
+    <div id="toast" role="status"></div>
+    <section class="help" aria-label="操作说明">
+      <div><kbd>WASD</kbd> / <kbd>方向键</kbd><span>移动</span></div>
+      <div><kbd>空格</kbd><span>跳跃</span></div>
+      <div><kbd>Shift</kbd><span>蹲下</span></div>
+      <div><kbd>Ctrl</kbd><span>奔跑</span></div>
+      <div><kbd>左键</kbd><span>破坏</span></div>
+      <div><kbd>右键</kbd><span>放置 / 互动</span></div>
+      <div><kbd>滚轮</kbd><span>缩放视野</span></div>
+      <div><kbd>B</kbd><span>背包</span></div>
+    </section>
+    <section class="hotbar" id="hotbar" aria-label="物品栏"></section>
+    <aside id="inventory" class="inventory" aria-label="背包" hidden>
+      <div class="inventory-head"><div><strong>背包</strong><small>选择方块放入物品栏</small></div><button id="close-inventory" class="icon-button" title="关闭背包" aria-label="关闭背包">×</button></div>
+      <div id="inventory-grid" class="inventory-grid"></div>
+    </aside>
+    <div class="crosshair" aria-hidden="true"><i></i><i></i></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
